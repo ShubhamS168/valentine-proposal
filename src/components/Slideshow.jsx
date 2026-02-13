@@ -39,59 +39,65 @@ export default function Slideshow() {
   }, []);
 
   /* 🎶 GitHub Pages–proof audio toggle */
+  const toggleSong = (src) => {
+  // 1️⃣ No audio yet → create & play
+    if (!audioRef.current) {
+      const audio = new Audio(src);
+      audio.loop = true;
+      audio.volume = 0.8;
+      audio.play().catch(() => {});
+      audioRef.current = audio;
+      setCurrentSong(src);
+      setIsPlaying(true);
+      return;
+    }
+
+    // 2️⃣ Same song clicked → pause / resume
+    if (currentSong === src) {
+      if (audioRef.current.paused) {
+        audioRef.current.play().catch(() => {});
+        setIsPlaying(true);
+      } else {
+        audioRef.current.pause();
+        setIsPlaying(false);
+      }
+      return;
+    }
+
+    // 3️⃣ Different song clicked → switch
+    audioRef.current.pause();
+    audioRef.current.src = src;
+    audioRef.current.currentTime = 0;
+    audioRef.current.play().catch(() => {});
+    setCurrentSong(src);
+    setIsPlaying(true);
+  };
+
+
   // const toggleSong = (src) => {
-  //   // Same song → toggle play/pause
-  //   if (audioRef.current && audioRef.current.src.includes(src)) {
-  //     if (!audioRef.current.paused) {
-  //       audioRef.current.pause();
-  //       setIsPlaying(false);
-  //     } else {
-  //       audioRef.current.play().catch(() => {});
-  //       setIsPlaying(true);
-  //     }
-  //     return;
-  //   }
-
-  //   // New song → stop old, create new Audio
   //   if (audioRef.current) {
-  //     audioRef.current.pause();
+  //     if (audioRef.current.src.includes(src)) {
+  //       if (!audioRef.current.paused) {
+  //         audioRef.current.pause();
+  //         setIsPlaying(false);
+  //         return;
+  //       }
+  //     } else {
+  //       audioRef.current.pause();
+  //     }
   //   }
 
-  //   const audio = new Audio(src);   // 🔑 KEY FIX
+  //   const audio = new Audio(src);
   //   audio.loop = true;
   //   audio.volume = 0.8;
 
-  //   audio.play().catch(() => {});
+  //   audio.play()
+  //     .then(() => setIsPlaying(true))
+  //     .catch(() => {});
+
   //   audioRef.current = audio;
-
   //   setCurrentSong(src);
-  //   setIsPlaying(true);
   // };
-
-  const toggleSong = (src) => {
-    if (audioRef.current) {
-      if (audioRef.current.src.includes(src)) {
-        if (!audioRef.current.paused) {
-          audioRef.current.pause();
-          setIsPlaying(false);
-          return;
-        }
-      } else {
-        audioRef.current.pause();
-      }
-    }
-
-    const audio = new Audio(src);
-    audio.loop = true;
-    audio.volume = 0.8;
-
-    audio.play()
-      .then(() => setIsPlaying(true))
-      .catch(() => {});
-
-    audioRef.current = audio;
-    setCurrentSong(src);
-  };
 
 
   return (

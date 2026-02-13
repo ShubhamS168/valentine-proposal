@@ -1,16 +1,57 @@
-# React + Vite
+# 💖 Valentine Proposal Web App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A playful, romantic, and interactive Valentine’s Day web experience built with **React**, **Tailwind CSS**, and **Framer Motion**.  
+Designed to be cute, emotional, mischievous, and impossible to say no 💘
 
-Currently, two official plugins are available:
+---
+## 📸 Screenshots
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 
-## React Compiler
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+### 💌 Proposal Screen
+![Proposal](./public/screenshots/proposal.png)
 
-## Expanding the ESLint configuration
+### 🎉 Celebration Mode
+![Celebration](./public/screenshots/celebration.png)
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+### 🎶 Music & Slideshow
+![Music](./public/screenshots/music.png)
+
+---
+
+
+
+
+## 🌸 Features
+
+- 💌 Interactive Yes / No proposal
+    - “No” button playfully escapes
+    - “Yes” button grows with excitement
+- 🌸 Floating hearts & blossom animations
+- 🎉 Celebration screen with smooth transitions
+- 🖼️ Animated slideshow with romantic & fun messages
+- 🎶 Music vibes selector (Play / Pause supported)
+- 🔊 Celebration sound on acceptance
+- 📱 Fully responsive & mobile-friendly
+- 🚀 Deployed on GitHub Pages
+
+---
+
+
+
+## 🧠 Tech Stack
+- **React (Vite)**
+- **Tailwind CSS**
+- **Framer Motion**
+- **Web Audio API**
+- **GitHub Pages (Deployment)**
+
+---
+## ❤️ Inspired by viral Valentine proposal websites — but built with:
+- Better animations
+- Real music control
+- Cleaner UI
+- Modern frontend practices
+
+---
+# If it made someone smile, laugh, or say YES — it did its job 💕

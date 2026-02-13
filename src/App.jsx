@@ -7,17 +7,17 @@ import YesButton from "./components/YesButton";
 import Celebration from "./components/Celebration";
 import BlossomRain from "./components/BlossomRain";
 //
-import { useEffect } from "react";
+// import { useEffect } from "react";
 
-useEffect(() => {
-  const unlock = () => {
-    const audio = new Audio();
-    audio.play().catch(() => {});
-    window.removeEventListener("click", unlock);
-  };
+// useEffect(() => {
+//   const unlock = () => {
+//     const audio = new Audio();
+//     audio.play().catch(() => {});
+//     window.removeEventListener("click", unlock);
+//   };
 
-  window.addEventListener("click", unlock);
-}, []);
+//   window.addEventListener("click", unlock);
+// }, []);
 
 //
 
