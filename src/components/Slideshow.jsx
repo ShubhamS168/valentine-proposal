@@ -140,46 +140,190 @@
 
 
 
+//2
+
+
+// import { useState, useEffect, useRef } from "react";
+// import { motion, AnimatePresence } from "framer-motion";
+
+// /* ---------------- SLIDES ---------------- */
+// const slides = [
+//   {
+//     emoji: "😂",
+//     title: "When I say I’m fine",
+//     text: "But actually I just want you"
+//   },
+//   {
+//     emoji: "💑",
+//     title: "Love isn’t perfect",
+//     text: "But it’s perfect with you"
+//   },
+//   {
+//     emoji: "🥹",
+//     title: "You’re my safe place",
+//     text: "Even on my worst days"
+//   },
+//   {
+//     emoji: "🌹",
+//     title: "I choose you",
+//     text: "Today. Tomorrow. Always."
+//   },
+//   {
+//     emoji: "🫂",
+//     title: "This could be us",
+//     text: "And I’d never get bored"
+//   }
+// ];
+
+// /* ---------------- SONGS ---------------- */
+// // const songs = [
+// //   { label: "Romantic 💕", src: "/music/Janam_Janam.mp3" },
+// //   { label: "Bollywood 🎥", src: "/music/tum_se_hi.mp3" },
+// //   { label: "Lo-Fi 🌙", src: "/music/Iktara_Lofi.mp3" },
+// //   { label: "Emotional 🥹", src: "/music/Agar Tum Saath Ho.mp3" }
+// // ];
+
+// const BASE = import.meta.env.BASE_URL;
+
+// const songs = [
+//   { label: "Romantic 💕", src: `${BASE}music/romantic.mp3` },
+//   { label: "Bollywood 🎥", src: `${BASE}music/bollywood.mp3` },
+//   { label: "Lo-Fi 🌙", src: `${BASE}music/lofi.mp3` },
+//   { label: "Emotional 🥹", src: `${BASE}music/emotional.mp3` }
+// ];
+
+// export default function Slideshow() {
+//   const [index, setIndex] = useState(0);
+//   const [currentSong, setCurrentSong] = useState(null);
+//   const [isPlaying, setIsPlaying] = useState(false);
+//   const audioRef = useRef(null);
+// //   const [currentSong, setCurrentSong] = useState(null);
+// //   const audioRef = useRef(null);
+
+
+//   /* Auto slide */
+//   useEffect(() => {
+//     const interval = setInterval(() => {
+//       setIndex((i) => (i + 1) % slides.length);
+//     }, 3500);
+//     return () => clearInterval(interval);
+//     }, []);
+
+
+//     const toggleSong = (src) => {
+//     const audio = audioRef.current;
+//     if (!audio) return;
+
+//     // Same song clicked
+//     if (currentSong === src) {
+//         if (isPlaying) {
+//         audio.pause();
+//         setIsPlaying(false);
+//         } else {
+//         audio.play();
+//         setIsPlaying(true);
+//         }
+//     } 
+//     // Different song clicked
+//     else {
+//         audio.pause();
+//         audio.src = src;
+//         audio.currentTime = 0;
+//         audio.play();
+//         setCurrentSong(src);
+//         setIsPlaying(true);
+//     }
+//     };
+
+//   /* Play selected song */
+// //   const playSong = (src) => {
+// //     if (!audioRef.current) return;
+// //     audioRef.current.src = src;
+// //     audioRef.current.play();
+// //     setCurrentSong(src);
+// //   };
+
+//   return (
+//     <div className="w-full mt-6">
+//       {/* -------- Slideshow -------- */}
+//       <div className="relative h-44 flex items-center justify-center overflow-hidden rounded-2xl bg-white/60 backdrop-blur-md shadow-inner">
+//         <AnimatePresence mode="wait">
+//           <motion.div
+//             key={index}
+//             initial={{ opacity: 0, scale: 0.95 }}
+//             animate={{ opacity: 1, scale: 1 }}
+//             exit={{ opacity: 0, scale: 0.95 }}
+//             transition={{ duration: 0.6 }}
+//             className="text-center px-6"
+//           >
+//             <div className="text-5xl mb-3">{slides[index].emoji}</div>
+//             <h3 className="text-xl font-bold text-rose-600">
+//               {slides[index].title}
+//             </h3>
+//             <p className="text-rose-500 mt-1">
+//               {slides[index].text}
+//             </p>
+//           </motion.div>
+//         </AnimatePresence>
+//       </div>
+
+//       {/* -------- Dots -------- */}
+//       <div className="flex justify-center gap-2 mt-3">
+//         {slides.map((_, i) => (
+//           <button
+//             key={i}
+//             onClick={() => setIndex(i)}
+//             className={`w-2.5 h-2.5 rounded-full transition ${
+//               i === index ? "bg-rose-500" : "bg-rose-300"
+//             }`}
+//           />
+//         ))}
+//       </div>
+
+//       {/* -------- Music Section -------- */}
+//       <div className="mt-6">
+//         <h4 className="text-rose-600 font-semibold mb-3 text-center">
+//           Choose the vibe 🎶
+//         </h4>
+
+//         <div className="flex flex-wrap gap-3 justify-center">
+//           {songs.map((song) => (
+//             <button
+//               key={song.src}
+//               onClick={() => toggleSong(song.src)}
+//               className={`px-4 py-2 rounded-full text-sm font-medium shadow-md transition ${
+//                 currentSong === song.src && isPlaying
+//                   ? "bg-rose-500 text-white"
+//                   : "bg-white/70 text-rose-600 hover:bg-rose-100"
+//               }`}
+//             >
+//               {song.label}
+//             </button>
+//           ))}
+//         </div>
+
+//         <audio ref={audioRef} />
+//       </div>
+//     </div>
+//   );
+// }
+
+
+// 3
+
 import { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
 /* ---------------- SLIDES ---------------- */
 const slides = [
-  {
-    emoji: "😂",
-    title: "When I say I’m fine",
-    text: "But actually I just want you"
-  },
-  {
-    emoji: "💑",
-    title: "Love isn’t perfect",
-    text: "But it’s perfect with you"
-  },
-  {
-    emoji: "🥹",
-    title: "You’re my safe place",
-    text: "Even on my worst days"
-  },
-  {
-    emoji: "🌹",
-    title: "I choose you",
-    text: "Today. Tomorrow. Always."
-  },
-  {
-    emoji: "🫂",
-    title: "This could be us",
-    text: "And I’d never get bored"
-  }
+  { emoji: "😂", title: "When I’m fine", text: "But actually I just want you" },
+  { emoji: "💑", title: "Love isn’t perfect", text: "But it’s perfect with you" },
+  { emoji: "🥹", title: "You’re my safe place", text: "Even on my worst days" },
+  { emoji: "🌹", title: "I choose you", text: "Today. Tomorrow. Always." },
+  { emoji: "🫂", title: "This could be us", text: "And I’d never get bored" }
 ];
 
 /* ---------------- SONGS ---------------- */
-// const songs = [
-//   { label: "Romantic 💕", src: "/music/Janam_Janam.mp3" },
-//   { label: "Bollywood 🎥", src: "/music/tum_se_hi.mp3" },
-//   { label: "Lo-Fi 🌙", src: "/music/Iktara_Lofi.mp3" },
-//   { label: "Emotional 🥹", src: "/music/Agar Tum Saath Ho.mp3" }
-// ];
-
 const BASE = import.meta.env.BASE_URL;
 
 const songs = [
@@ -194,9 +338,6 @@ export default function Slideshow() {
   const [currentSong, setCurrentSong] = useState(null);
   const [isPlaying, setIsPlaying] = useState(false);
   const audioRef = useRef(null);
-//   const [currentSong, setCurrentSong] = useState(null);
-//   const audioRef = useRef(null);
-
 
   /* Auto slide */
   useEffect(() => {
@@ -204,41 +345,33 @@ export default function Slideshow() {
       setIndex((i) => (i + 1) % slides.length);
     }, 3500);
     return () => clearInterval(interval);
-    }, []);
+  }, []);
 
-
-    const toggleSong = (src) => {
+  /* 🔑 GitHub Pages–safe toggle */
+  const toggleSong = (src) => {
     const audio = audioRef.current;
     if (!audio) return;
 
-    // Same song clicked
+    // Same song → toggle pause / resume
     if (currentSong === src) {
-        if (isPlaying) {
+      if (isPlaying) {
         audio.pause();
         setIsPlaying(false);
-        } else {
-        audio.play();
+      } else {
+        audio.play().catch(() => {});
         setIsPlaying(true);
-        }
-    } 
-    // Different song clicked
-    else {
-        audio.pause();
-        audio.src = src;
-        audio.currentTime = 0;
-        audio.play();
-        setCurrentSong(src);
-        setIsPlaying(true);
+      }
     }
-    };
-
-  /* Play selected song */
-//   const playSong = (src) => {
-//     if (!audioRef.current) return;
-//     audioRef.current.src = src;
-//     audioRef.current.play();
-//     setCurrentSong(src);
-//   };
+    // New song → force reload then play
+    else {
+      audio.pause();
+      audio.src = src;
+      audio.load();               // 🔑 REQUIRED for GitHub Pages
+      audio.play().catch(() => {});
+      setCurrentSong(src);
+      setIsPlaying(true);
+    }
+  };
 
   return (
     <div className="w-full mt-6">
@@ -299,7 +432,8 @@ export default function Slideshow() {
           ))}
         </div>
 
-        <audio ref={audioRef} />
+        {/* IMPORTANT: no src here */}
+        <audio ref={audioRef} preload="auto" />
       </div>
     </div>
   );
