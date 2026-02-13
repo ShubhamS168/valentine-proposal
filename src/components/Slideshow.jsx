@@ -310,7 +310,6 @@
 
 
 // 3
-
 import { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
@@ -327,16 +326,18 @@ const slides = [
 const BASE = import.meta.env.BASE_URL;
 
 const songs = [
-  { label: "Romantic 💕", src: `${BASE}music/romantic.mp3` },
-  { label: "Bollywood 🎥", src: `${BASE}music/bollywood.mp3` },
-  { label: "Lo-Fi 🌙", src: `${BASE}music/lofi.mp3` },
-  { label: "Emotional 🥹", src: `${BASE}music/emotional.mp3` }
+  { label: "Romantic 💕", src: `${BASE}music/Janam_Janam.mp3` },
+  { label: "Bollywood 🎥", src: `${BASE}music/tum_se_hi.mp3` },
+  { label: "Lo-Fi 🌙", src: `${BASE}music/Iktara_Lofi.mp3` },
+  { label: "Emotional 🥹", src: `${BASE}music/Agar Tum Saath Ho.mp3` }
 ];
 
 export default function Slideshow() {
   const [index, setIndex] = useState(0);
   const [currentSong, setCurrentSong] = useState(null);
   const [isPlaying, setIsPlaying] = useState(false);
+
+  // 🔑 Web Audio (NOT <audio>)
   const audioRef = useRef(null);
 
   /* Auto slide */
@@ -347,30 +348,34 @@ export default function Slideshow() {
     return () => clearInterval(interval);
   }, []);
 
-  /* 🔑 GitHub Pages–safe toggle */
+  /* 🎶 GitHub Pages–proof audio toggle */
   const toggleSong = (src) => {
-    const audio = audioRef.current;
-    if (!audio) return;
-
-    // Same song → toggle pause / resume
-    if (currentSong === src) {
-      if (isPlaying) {
-        audio.pause();
+    // Same song → toggle play/pause
+    if (audioRef.current && audioRef.current.src.includes(src)) {
+      if (!audioRef.current.paused) {
+        audioRef.current.pause();
         setIsPlaying(false);
       } else {
-        audio.play().catch(() => {});
+        audioRef.current.play().catch(() => {});
         setIsPlaying(true);
       }
+      return;
     }
-    // New song → force reload then play
-    else {
-      audio.pause();
-      audio.src = src;
-      audio.load();               // 🔑 REQUIRED for GitHub Pages
-      audio.play().catch(() => {});
-      setCurrentSong(src);
-      setIsPlaying(true);
+
+    // New song → stop old, create new Audio
+    if (audioRef.current) {
+      audioRef.current.pause();
     }
+
+    const audio = new Audio(src);   // 🔑 KEY FIX
+    audio.loop = true;
+    audio.volume = 0.8;
+
+    audio.play().catch(() => {});
+    audioRef.current = audio;
+
+    setCurrentSong(src);
+    setIsPlaying(true);
   };
 
   return (
@@ -431,10 +436,8 @@ export default function Slideshow() {
             </button>
           ))}
         </div>
-
-        {/* IMPORTANT: no src here */}
-        <audio ref={audioRef} preload="auto" />
       </div>
     </div>
   );
 }
+
