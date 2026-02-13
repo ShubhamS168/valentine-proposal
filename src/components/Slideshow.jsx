@@ -326,10 +326,10 @@ const slides = [
 const BASE = import.meta.env.BASE_URL;
 
 const songs = [
-  { label: "Romantic 💕", src: `${BASE}music/Janam_Janam.mp3` },
-  { label: "Bollywood 🎥", src: `${BASE}music/tum_se_hi.mp3` },
-  { label: "Lo-Fi 🌙", src: `${BASE}music/Iktara_Lofi.mp3` },
-  { label: "Emotional 🥹", src: `${BASE}music/Agar Tum Saath Ho.mp3` }
+  { label: "Romantic 💕", src: `${BASE}music/janam-janam.mp3` },
+  { label: "Bollywood 🎥", src: `${BASE}music/tum-se-hi.mp3` },
+  { label: "Lo-Fi 🌙", src: `${BASE}music/iktara-lofi.mp3` },
+  { label: "Emotional 🥹", src: `${BASE}music/agar-tum-saath-ho.mp3` }
 ];
 
 export default function Slideshow() {
