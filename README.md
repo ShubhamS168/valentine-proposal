@@ -3,10 +3,13 @@
 A playful, romantic, and interactive Valentine’s Day web experience built with **React**, **Tailwind CSS**, and **Framer Motion**.  
 Designed to be cute, emotional, mischievous, and impossible to say no 💘
 
+
+
+🔗 **Live Demo:**  
+👉 https://shubhams168.github.io/valentine-proposal/
 ---
+
 ## 📸 Screenshots
-
-
 
 ### 💌 Proposal Screen
 ![Proposal](./public/screenshots/proposal.png)
@@ -18,9 +21,6 @@ Designed to be cute, emotional, mischievous, and impossible to say no 💘
 ![Music](./public/screenshots/music.png)
 
 ---
-
-
-
 
 ## 🌸 Features
 
