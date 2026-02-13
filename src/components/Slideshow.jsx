@@ -326,7 +326,7 @@ const slides = [
 const BASE = import.meta.env.BASE_URL;
 
 const songs = [
-  { label: "Romantic 💕", src: `${BASE}music/janam-janam.mp3` },
+  { label: "Romantic 💕", src: `${import.meta.env.BASE_URL}sounds/celebrate.mp3` },
   { label: "Bollywood 🎥", src: `${BASE}music/tum-se-hi.mp3` },
   { label: "Lo-Fi 🌙", src: `${BASE}music/iktara-lofi.mp3` },
   { label: "Emotional 🥹", src: `${BASE}music/agar-tum-saath-ho.mp3` }
