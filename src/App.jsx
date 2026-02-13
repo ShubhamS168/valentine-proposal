@@ -14,23 +14,36 @@ export default function App() {
 
   const celebrationAudioRef = useRef(null);
 
-  const handleYes = () => {
-    if (accepted) return;
+  // const handleYes = () => {
+  //   if (accepted) return;
 
+  //   setAccepted(true);
+  //   setCelebrating(true);
+
+  //   // play celebration sound
+  //   if (celebrationAudioRef.current) {
+  //     celebrationAudioRef.current.currentTime = 0;
+  //     celebrationAudioRef.current.play();
+  //   }
+
+  //   // stop blossoms after 7 seconds
+  //   setTimeout(() => {
+  //     setCelebrating(false);
+  //   }, 7000);
+  // };
+  const handleYes = () => {
     setAccepted(true);
     setCelebrating(true);
 
-    // play celebration sound
-    if (celebrationAudioRef.current) {
-      celebrationAudioRef.current.currentTime = 0;
-      celebrationAudioRef.current.play();
+    const audio = celebrationAudioRef.current;
+    if (audio) {
+      audio.currentTime = 0;
+      audio.play().catch(() => {});
     }
 
-    // stop blossoms after 7 seconds
-    setTimeout(() => {
-      setCelebrating(false);
-    }, 7000);
+    setTimeout(() => setCelebrating(false), 7000);
   };
+
 
   return (
     <div
