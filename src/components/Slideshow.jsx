@@ -173,11 +173,20 @@ const slides = [
 ];
 
 /* ---------------- SONGS ---------------- */
+// const songs = [
+//   { label: "Romantic 💕", src: "/music/Janam_Janam.mp3" },
+//   { label: "Bollywood 🎥", src: "/music/tum_se_hi.mp3" },
+//   { label: "Lo-Fi 🌙", src: "/music/Iktara_Lofi.mp3" },
+//   { label: "Emotional 🥹", src: "/music/Agar Tum Saath Ho.mp3" }
+// ];
+
+const BASE = import.meta.env.BASE_URL;
+
 const songs = [
-  { label: "Romantic 💕", src: "/music/Janam_Janam.mp3" },
-  { label: "Bollywood 🎥", src: "/music/tum_se_hi.mp3" },
-  { label: "Lo-Fi 🌙", src: "/music/Iktara_Lofi.mp3" },
-  { label: "Emotional 🥹", src: "/music/Agar Tum Saath Ho.mp3" }
+  { label: "Romantic 💕", src: `${BASE}music/romantic.mp3` },
+  { label: "Bollywood 🎥", src: `${BASE}music/bollywood.mp3` },
+  { label: "Lo-Fi 🌙", src: `${BASE}music/lofi.mp3` },
+  { label: "Emotional 🥹", src: `${BASE}music/emotional.mp3` }
 ];
 
 export default function Slideshow() {

@@ -48,7 +48,7 @@ export default function App() {
       {/* celebration sound */}
       <audio
         ref={celebrationAudioRef}
-        src="/sounds/celebrate.mp3"
+        src={`${import.meta.env.BASE_URL}sounds/celebrate.mp3`}
         preload="auto"
       />
 
